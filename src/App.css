@@ -1,22 +1,30 @@
-.App {
-  text-align: center;
+.board {
+	width: 600px;
+	height: 600px;
+	margin: 20px auto;
+    background-color: #34495e;
+    color: #fff;
+    border: 6px solid #2c3e50;
+    border-radius: 10px;
+	display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.square {
+  border: 6px solid #2c3e50;
+  border-radius: 2px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.square:hover {
+    cursor: pointer;
+    background-color: blue;
 }
 
-.App-link {
-  color: #09d3ac;
+.noClik {
+  pointer-events: none;
 }
