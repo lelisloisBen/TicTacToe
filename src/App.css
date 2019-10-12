@@ -1,19 +1,27 @@
+body {
+  font-family: 'Mansalva', cursive;
+  background-image: url('./images/bg.jpg');
+  background-color: #C63523;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
 .board {
 	width: 600px;
 	height: 600px;
 	margin: 20px auto;
-    background-color: #34495e;
-    color: #fff;
-    border: 6px solid #2c3e50;
-    border-radius: 10px;
+  background-color: #C63523;
+  color: #fff;
+  border: 6px solid #230404;
+  border-radius: 10px;
 	display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .square {
-  border: 6px solid #2c3e50;
+  border: 6px solid #230404;
   border-radius: 2px;
-  font-family: Helvetica;
   font-weight: bold;
   font-size: 4em;
   display: flex;
@@ -22,9 +30,20 @@
 }
 .square:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: #5A130A;
 }
 
 .noClik {
   pointer-events: none;
+}
+.winCard {
+  background-color: black;
+  position: absolute;
+  top: 12%;
+  left: 35%;
+  width: 30%;
+}
+
+.msg {
+  font-size: 30px;
 }

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import sorciere from '../images/sorciere.gif';
+import clown from '../images/clown.gif';
+
 
 const TicTacToe = () => {
     
@@ -23,6 +26,8 @@ const TicTacToe = () => {
     const [sq9, setSq9] = useState("");
     const [play9, setPlay9] = useState("square");
     const [msg, setMsg] = useState('');
+    const [witch, setWitch] = useState('card winCard d-none');
+    const [scary, setScary] = useState('card winCard d-none');
 
     const clicked = (e) => {
         let id = e.target.id;
@@ -38,29 +43,28 @@ const TicTacToe = () => {
         if (id === "9") { setSq9(letter); setPlay9("square noClik"); }
     }
     useEffect(() => {
-        if (sq1 === "X" && sq2 === "X" && sq3 === "X") setMsg("X win");
-        if (sq1 === "O" && sq2 === "O" && sq3 === "O") setMsg("O win");
-        if (sq4 === "X" && sq5 === "X" && sq6 === "X") setMsg("X win");
-        if (sq4 === "O" && sq5 === "O" && sq6 === "O") setMsg("O win");
-        if (sq7 === "X" && sq8 === "X" && sq9 === "X") setMsg("X win");
-        if (sq7 === "O" && sq8 === "O" && sq9 === "O") setMsg("O win");
-        if (sq1 === "X" && sq4 === "X" && sq7 === "X") setMsg("X win");
-        if (sq1 === "O" && sq4 === "O" && sq7 === "O") setMsg("O win");
-        if (sq2 === "X" && sq5 === "X" && sq8 === "X") setMsg("X win");
-        if (sq2 === "O" && sq5 === "O" && sq8 === "O") setMsg("O win");
-        if (sq3 === "X" && sq6 === "X" && sq9 === "X") setMsg("X win");
-        if (sq3 === "O" && sq6 === "O" && sq9 === "O") setMsg("O win");
-        if (sq1 === "X" && sq5 === "X" && sq9 === "X") setMsg("X win");
-        if (sq1 === "O" && sq5 === "O" && sq9 === "O") setMsg("O win");
-        if (sq3 === "X" && sq5 === "X" && sq7 === "X") setMsg("X win");
-        if (sq3 === "O" && sq5 === "O" && sq7 === "O") setMsg("O win");
+        if (sq1 === "X" && sq2 === "X" && sq3 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq1 === "O" && sq2 === "O" && sq3 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq4 === "X" && sq5 === "X" && sq6 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq4 === "O" && sq5 === "O" && sq6 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq7 === "X" && sq8 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq7 === "O" && sq8 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq1 === "X" && sq4 === "X" && sq7 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq1 === "O" && sq4 === "O" && sq7 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq2 === "X" && sq5 === "X" && sq8 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq2 === "O" && sq5 === "O" && sq8 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq3 === "X" && sq6 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq3 === "O" && sq6 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq1 === "X" && sq5 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq1 === "O" && sq5 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
+        if (sq3 === "X" && sq5 === "X" && sq7 === "X") {setMsg("X win"); setWitch('card winCard')};
+        if (sq3 === "O" && sq5 === "O" && sq7 === "O") {setMsg("O win"); setScary('card winCard')};
     }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9])
 
    
     return (
         <>
         <h3 className="text-center">It's {letter} turn to play</h3>
-        <h3 className="text-center">{msg}</h3>
         <div className="board">
             <div id="1" onClick={clicked} className={play1}>{sq1}</div>
             <div id="2" onClick={clicked} className={play2}>{sq2}</div>
@@ -71,6 +75,14 @@ const TicTacToe = () => {
             <div id="7" onClick={clicked} className={play7}>{sq7}</div>
             <div id="8" onClick={clicked} className={play8}>{sq8}</div>
             <div id="9" onClick={clicked} className={play9}>{sq9}</div>
+        </div>
+        <div class={witch}>
+            <p className="text-center msg">{msg}</p>
+            <img src={sorciere} class="card-img-top" alt="..." />
+        </div>
+        <div class={scary}>
+            <p className="text-center msg">{msg}</p>
+            <img src={clown} class="card-img-top" alt="..." />
         </div>
         </>
     );
