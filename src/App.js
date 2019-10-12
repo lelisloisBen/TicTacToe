@@ -1,4 +1,5 @@
 import React from 'react';
+import injectContext from "./store/appContext";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -17,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default injectContext(App);

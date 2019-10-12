@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Consumer } from "../store/appContext";
 
 import sorciere from '../images/sorciere.gif';
 import clown from '../images/clown.gif';
@@ -81,6 +82,12 @@ const TicTacToe = () => {
    
     return (
         <>
+        <Consumer>
+        {({ store }) => {
+                    // return store.name;
+                    console.log(store.name);
+                }}
+        </Consumer>
         <h3 className="text-center">It's {letter} turn to play</h3>
         <div className="board">
             <div id="1" onClick={clicked} className={play1}>{sq1}</div>
