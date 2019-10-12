@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import sorciere from '../images/sorciere.gif';
 import clown from '../images/clown.gif';
+import girlUrl from '../sounds/girl.wav';
+import clownUrl from '../sounds/scream.wav';
 
 
 const TicTacToe = () => {
+
+    const [girl] = useState(new Audio(girlUrl));
+    const [scrayClown] = useState(new Audio(clownUrl));
     
     const [letter, setLetter] = useState('X');
     const [sq1, setSq1] = useState("");
@@ -43,23 +48,35 @@ const TicTacToe = () => {
         if (id === "9") { setSq9(letter); setPlay9("square noClik"); }
     }
     useEffect(() => {
-        if (sq1 === "X" && sq2 === "X" && sq3 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq1 === "O" && sq2 === "O" && sq3 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq4 === "X" && sq5 === "X" && sq6 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq4 === "O" && sq5 === "O" && sq6 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq7 === "X" && sq8 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq7 === "O" && sq8 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq1 === "X" && sq4 === "X" && sq7 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq1 === "O" && sq4 === "O" && sq7 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq2 === "X" && sq5 === "X" && sq8 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq2 === "O" && sq5 === "O" && sq8 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq3 === "X" && sq6 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq3 === "O" && sq6 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq1 === "X" && sq5 === "X" && sq9 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq1 === "O" && sq5 === "O" && sq9 === "O") {setMsg("O win"); setScary('card winCard')};
-        if (sq3 === "X" && sq5 === "X" && sq7 === "X") {setMsg("X win"); setWitch('card winCard')};
-        if (sq3 === "O" && sq5 === "O" && sq7 === "O") {setMsg("O win"); setScary('card winCard')};
-    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9])
+        const Xwins = () => {
+            setMsg("X win");
+            setWitch('card winCard');
+            girl.play();
+            setInterval(() => { window.location.reload(); }, 5000);
+        }
+        const Owins = () => {
+            setMsg("O win");
+            setScary('card winCard');
+            scrayClown.play();
+            setInterval(() => { window.location.reload(); }, 4000);
+        }
+        if (sq1 === "X" && sq2 === "X" && sq3 === "X") Xwins();
+        if (sq1 === "O" && sq2 === "O" && sq3 === "O") Owins();
+        if (sq4 === "X" && sq5 === "X" && sq6 === "X") Xwins();
+        if (sq4 === "O" && sq5 === "O" && sq6 === "O") Owins();
+        if (sq7 === "X" && sq8 === "X" && sq9 === "X") Xwins();
+        if (sq7 === "O" && sq8 === "O" && sq9 === "O") Owins();
+        if (sq1 === "X" && sq4 === "X" && sq7 === "X") Xwins();
+        if (sq1 === "O" && sq4 === "O" && sq7 === "O") Owins();
+        if (sq2 === "X" && sq5 === "X" && sq8 === "X") Xwins();
+        if (sq2 === "O" && sq5 === "O" && sq8 === "O") Owins();
+        if (sq3 === "X" && sq6 === "X" && sq9 === "X") Xwins();
+        if (sq3 === "O" && sq6 === "O" && sq9 === "O") Owins();
+        if (sq1 === "X" && sq5 === "X" && sq9 === "X") Xwins();
+        if (sq1 === "O" && sq5 === "O" && sq9 === "O") Owins();
+        if (sq3 === "X" && sq5 === "X" && sq7 === "X") Xwins();
+        if (sq3 === "O" && sq5 === "O" && sq7 === "O") Owins();
+    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown])
 
    
     return (
