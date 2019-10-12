@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
         
 		store: {
-            name: "samir"
+            name: "TIC TAC TOE"
 		},
 		actions: {
 

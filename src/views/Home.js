@@ -6,7 +6,8 @@ const Home = () => {
     return (
         
         <>
-        <h1 className="text-center">WELCOME <br/> TO <br/> TIC TAC TOE <br/> GAME </h1>
+        <h1 className="text-center mt-5">WELCOME TO <br/> TIC TAC TOE <br/> GAME </h1>
+        <p className="text-center">Don't be scared...</p>
         
         <div className="d-flex justify-content-center">
             <Link to="/titactoe">

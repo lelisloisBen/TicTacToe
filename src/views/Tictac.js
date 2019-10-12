@@ -83,10 +83,9 @@ const TicTacToe = () => {
     return (
         <>
         <Consumer>
-        {({ store }) => {
-                    // return store.name;
-                    console.log(store.name);
-                }}
+        {({ store }) => { 
+            return <h2 className="text-center">{store.name}</h2>; 
+            }}
         </Consumer>
         <h3 className="text-center">It's {letter} turn to play</h3>
         <div className="board">
