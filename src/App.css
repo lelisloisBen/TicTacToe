@@ -7,11 +7,32 @@ body {
   background-size: cover;
   color: white;
 }
+.start {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 300px;
+  border: 6px solid #230404;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: #5A130A;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
 .board {
 	width: 600px;
 	height: 600px;
 	margin: 20px auto;
-  background-color: #C63523;
+  background-color: transparent;
   color: #fff;
   border: 6px solid #230404;
   border-radius: 10px;
@@ -23,10 +44,11 @@ body {
   border: 6px solid #230404;
   border-radius: 2px;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 6em;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: url(http://cur.cursors-4u.net/others/oth-8/oth704.cur), auto !important;
 }
 .square:hover {
     cursor: pointer;

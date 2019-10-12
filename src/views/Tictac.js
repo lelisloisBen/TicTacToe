@@ -76,13 +76,13 @@ const TicTacToe = () => {
             <div id="8" onClick={clicked} className={play8}>{sq8}</div>
             <div id="9" onClick={clicked} className={play9}>{sq9}</div>
         </div>
-        <div class={witch}>
+        <div className={witch}>
             <p className="text-center msg">{msg}</p>
-            <img src={sorciere} class="card-img-top" alt="..." />
+            <img src={sorciere} className="card-img-top" alt="..." />
         </div>
-        <div class={scary}>
+        <div className={scary}>
             <p className="text-center msg">{msg}</p>
-            <img src={clown} class="card-img-top" alt="..." />
+            <img src={clown} className="card-img-top" alt="..." />
         </div>
         </>
     );
