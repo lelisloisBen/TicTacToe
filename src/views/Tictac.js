@@ -112,6 +112,7 @@ const TicTacToe = () => {
         if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "O") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
         if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
     }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, ScarySoundBg, witchLaugh])
 
    
