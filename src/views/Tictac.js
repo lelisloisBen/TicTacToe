@@ -20,6 +20,7 @@ const TicTacToe = () => {
     const [witchLaugh] = useState(new Audio(laugh));
     const [ScarySoundBg] = useState(new Audio(soundBg));
     
+    const [players, setPlayers] = useState('PLAYER 1: ');
     const [letter, setLetter] = useState('X');
     const [sq1, setSq1] = useState("");
     const [play1, setPlay1] = useState("square");
@@ -47,6 +48,7 @@ const TicTacToe = () => {
     const clicked = (e) => {
         let id = e.target.id;
         (letter === "X") ? setLetter("O") : setLetter("X");
+        (players === 'PLAYER 1: ') ? setPlayers('PLAYER 2: ') : setPlayers('PLAYER 1: ');
         if (id === "1") { setSq1(letter); setPlay1("square noClik"); }
         if (id === "2") { setSq2(letter); setPlay2("square noClik"); }
         if (id === "3") { setSq3(letter); setPlay3("square noClik"); }
@@ -120,7 +122,7 @@ const TicTacToe = () => {
             return <h2 className="text-center">{store.name}</h2>; 
             }}
         </Consumer>
-        <h3 className="text-center">It's {letter} turn to play</h3>
+        <h2 className="text-center"><b>{players} {letter} → PLAY</b></h2>
         <div className="board">
             <div id="1" onClick={clicked} className={play1}>{sq1}</div>
             <div id="2" onClick={clicked} className={play2}>{sq2}</div>
