@@ -69,3 +69,48 @@ a:hover {
 .msg {
   font-size: 30px;
 }
+
+/* flying witch */
+
+#pot{bottom:5%;
+  position:absolute;
+  animation:linear alternate;
+  animation-name: run;
+  animation-duration: 10s;
+  }     
+@keyframes run {
+      0% { left: 0; bottom: 0;}
+      50%{ left : 100%; bottom: 80%;}
+      100%{ left : 100%; bottom: 80%;}
+  }
+
+/* Flying bat */
+.bat {
+  bottom:0px;
+  right: 0;
+  position:absolute;
+  animation:linear alternate;
+  animation-name: flyBat;
+  animation-duration: 10s;
+  animation-delay: 10s;
+  }     
+@keyframes flyBat {
+      0% { bottom: 0; right:0; }
+      50%{ bottom: 100%; right: 50%;}
+      100%{ bottom: 100%; }
+  }
+/*  cat */
+.cat {
+  z-index: -1;
+  bottom: -20px;
+  right: 22%;
+  position:absolute;
+  animation:linear alternate;
+  /* animation-name: cats; */
+  animation-duration: 10s;
+  }     
+@keyframes cats {
+      0% { right:0; }
+      50%{ right: 20%; }
+      100%{right: 20%; }
+  }

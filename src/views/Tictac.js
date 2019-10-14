@@ -3,14 +3,22 @@ import { Consumer } from "../store/appContext";
 
 import sorciere from '../images/sorciere.gif';
 import clown from '../images/clown.gif';
+import evenWitch from '../images/evenWitch.gif';
 import girlUrl from '../sounds/girl.wav';
 import clownUrl from '../sounds/scream.wav';
+import laugh from '../sounds/laugh.mp3';
+import flyWitch from '../images/flyWitch.png';
+import bat from '../images/bat.png';
+import cat from '../images/cat.gif';
+import soundBg from '../sounds/sound.mp3';
 
 
 const TicTacToe = () => {
 
     const [girl] = useState(new Audio(girlUrl));
     const [scrayClown] = useState(new Audio(clownUrl));
+    const [witchLaugh] = useState(new Audio(laugh));
+    const [ScarySoundBg] = useState(new Audio(soundBg));
     
     const [letter, setLetter] = useState('X');
     const [sq1, setSq1] = useState("");
@@ -34,6 +42,7 @@ const TicTacToe = () => {
     const [msg, setMsg] = useState('');
     const [witch, setWitch] = useState('card winCard d-none');
     const [scary, setScary] = useState('card winCard d-none');
+    const [evenSorciere, setEvenSorciere] = useState('d-none');
 
     const clicked = (e) => {
         let id = e.target.id;
@@ -49,21 +58,27 @@ const TicTacToe = () => {
         if (id === "9") { setSq9(letter); setPlay9("square noClik"); }
     }
     useEffect(() => {
+        ScarySoundBg.play();
         const Xwins = () => {
             setMsg("X win");
             setWitch('card winCard');
             girl.play();
+            ScarySoundBg.pause();
             setInterval(() => { window.location.reload(); }, 5000);
         }
         const Owins = () => {
             setMsg("O win");
             setScary('card winCard');
             scrayClown.play();
+            ScarySoundBg.pause();
             setInterval(() => { window.location.reload(); }, 4000);
         }
         const cats = () => {
-            setMsg("CATS, No winner");
-            setScary('card winCard');
+            setMsg("NO WINNER TRY AGAIN");
+            setEvenSorciere('card winCard')
+            witchLaugh.play();
+            ScarySoundBg.pause();
+            setInterval(() => { window.location.reload(); }, 5000);
         }
         if (sq1 === "X" && sq2 === "X" && sq3 === "X") Xwins();
         if (sq1 === "O" && sq2 === "O" && sq3 === "O") Owins();
@@ -88,7 +103,14 @@ const TicTacToe = () => {
         if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown])
+        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        if (sq1 === "X" && sq2 === "O" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
+        if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
+        if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
+        if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "O") cats();
+        if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, ScarySoundBg, witchLaugh])
 
    
     return (
@@ -117,6 +139,19 @@ const TicTacToe = () => {
         <div className={scary}>
             <p className="text-center msg">{msg}</p>
             <img src={clown} className="card-img-top" alt="..." />
+        </div>
+        <div className={evenSorciere}>
+            <p className="text-center msg">{msg}</p>
+            <img src={evenWitch} className="card-img-top" alt="..." />
+        </div>
+        <div id = "pot">
+            <img src={flyWitch} width="100px" height="100px" alt="witch" />
+        </div>
+        <div className="bat">
+            <img src={bat} alt="bat" width = "100px" height ="100px"/>
+        </div>
+        <div className="cat">
+            <img src={cat} alt="bat" width = "100px" height ="100px"/>
         </div>
         </>
     );
