@@ -10,8 +10,9 @@ import laugh from '../sounds/laugh.mp3';
 import flyWitch from '../images/flyWitch.png';
 import bat from '../images/bat.png';
 import cat from '../images/cat.gif';
-import soundBg from '../sounds/sound.mp3';
+// import soundBg from '../sounds/sound.mp3';
 import finalBurk from '../images/burk.gif';
+import FinalMonster from '../sounds/finalMonster.mp3';
 
 
 const TicTacToe = () => {
@@ -19,7 +20,8 @@ const TicTacToe = () => {
     const [girl] = useState(new Audio(girlUrl));
     const [scrayClown] = useState(new Audio(clownUrl));
     const [witchLaugh] = useState(new Audio(laugh));
-    const [ScarySoundBg] = useState(new Audio(soundBg));
+    // const [ScarySoundBg] = useState(new Audio(soundBg));
+    const [FinalScream] = useState(new Audio(FinalMonster));
     
     const [players, setPlayers] = useState('PLAYER 1: ');
     const [letter, setLetter] = useState('X');
@@ -67,6 +69,7 @@ const TicTacToe = () => {
     useEffect(() => {
         if (player1Games === 3 || player2Games === 3) {
             setFinalWinner('card finalCard');
+            FinalScream.play();
             if (player1Games === 3) setMsg("PLAYER 1 WINS THE GAME!");
             if (player2Games === 3) setMsg("PLAYER 2 WINS THE GAME!");
             setInterval(() => { window.location.reload(); }, 5000);
@@ -82,13 +85,13 @@ const TicTacToe = () => {
             setSq8(""); setPlay8("square");
             setSq9(""); setPlay9("square");
         }
-        ScarySoundBg.play();
+        // ScarySoundBg.play();
         const Xwins = () => {
             setPlayer1Games(1);
             setMsg("X win");
             setWitch('card winCard');
             girl.play();
-            ScarySoundBg.pause();
+            // ScarySoundBg.pause();
             reset();
             setPlayer1Games(player1Games + 1);
             setTimeout(() => { 
@@ -100,7 +103,7 @@ const TicTacToe = () => {
             setMsg("O win");
             setScary('card winCard');
             scrayClown.play();
-            ScarySoundBg.pause();
+            // ScarySoundBg.pause();
             reset();
             setPlayer2Games(player2Games + 1);
             setTimeout(() => { 
@@ -112,7 +115,7 @@ const TicTacToe = () => {
             setMsg("NO WINNER TRY AGAIN");
             setEvenSorciere('card winCard');
             witchLaugh.play();
-            ScarySoundBg.pause();
+            // ScarySoundBg.pause();
             reset();
             setTimeout(() => { 
                 setEvenSorciere('d-none');
@@ -150,7 +153,7 @@ const TicTacToe = () => {
         if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
         if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
-    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, ScarySoundBg, witchLaugh, player1Games, player2Games])
+    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, witchLaugh, player1Games, player2Games, FinalScream])
 
    
     return (
