@@ -10,7 +10,7 @@ import laugh from '../sounds/laugh.mp3';
 import flyWitch from '../images/flyWitch.png';
 import bat from '../images/bat.png';
 import cat from '../images/cat.gif';
-// import soundBg from '../sounds/sound.mp3';
+import soundBg from '../sounds/sound.mp3';
 import finalBurk from '../images/burk.gif';
 import FinalMonster from '../sounds/finalMonster.mp3';
 
@@ -20,7 +20,7 @@ const TicTacToe = () => {
     const [girl] = useState(new Audio(girlUrl));
     const [scrayClown] = useState(new Audio(clownUrl));
     const [witchLaugh] = useState(new Audio(laugh));
-    // const [ScarySoundBg] = useState(new Audio(soundBg));
+    const [ScarySoundBg] = useState(new Audio(soundBg));
     const [FinalScream] = useState(new Audio(FinalMonster));
     
     const [players, setPlayers] = useState('PLAYER 1: ');
@@ -52,6 +52,9 @@ const TicTacToe = () => {
     const [player1Games, setPlayer1Games] = useState(0);
     const [player2Games, setPlayer2Games] = useState(0);
 
+    ScarySoundBg.volume = 0.1;
+    ScarySoundBg.play();
+
     const clicked = (e) => {
         let id = e.target.id;
         (letter === "X") ? setLetter("O") : setLetter("X");
@@ -72,6 +75,11 @@ const TicTacToe = () => {
             FinalScream.play();
             if (player1Games === 3) setMsg("PLAYER 1 WINS THE GAME!");
             if (player2Games === 3) setMsg("PLAYER 2 WINS THE GAME!");
+            setWitch('d-none');
+            girl.pause();
+            setScary('d-none');
+            scrayClown.pause();
+            ScarySoundBg.pause();
             setInterval(() => { window.location.reload(); }, 5000);
         }
         const reset = () => {
@@ -87,39 +95,42 @@ const TicTacToe = () => {
         }
         // ScarySoundBg.play();
         const Xwins = () => {
+            ScarySoundBg.pause();
             setPlayer1Games(1);
             setMsg("X win");
             setWitch('card winCard');
             girl.play();
-            // ScarySoundBg.pause();
             reset();
             setPlayer1Games(player1Games + 1);
             setTimeout(() => { 
                 setWitch('d-none');
                 girl.pause();
+                girl.currentTime = 0;
              }, 5000);
         }
         const Owins = () => {
+            ScarySoundBg.pause();
             setMsg("O win");
             setScary('card winCard');
             scrayClown.play();
-            // ScarySoundBg.pause();
             reset();
             setPlayer2Games(player2Games + 1);
             setTimeout(() => { 
                 setScary('d-none');
                 scrayClown.pause();
+                scrayClown.currentTime = 0;
              }, 4000);
         }
         const cats = () => {
+            ScarySoundBg.pause();
             setMsg("NO WINNER TRY AGAIN");
             setEvenSorciere('card winCard');
             witchLaugh.play();
-            // ScarySoundBg.pause();
             reset();
             setTimeout(() => { 
                 setEvenSorciere('d-none');
                 witchLaugh.pause();
+                witchLaugh.currentTime = 0;
              }, 5000);
         }
         if (sq1 === "X" && sq2 === "X" && sq3 === "X") Xwins();
@@ -153,7 +164,7 @@ const TicTacToe = () => {
         if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
         if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
-    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, witchLaugh, player1Games, player2Games, FinalScream])
+    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, witchLaugh, ScarySoundBg, player1Games, player2Games, FinalScream])
 
    
     return (
