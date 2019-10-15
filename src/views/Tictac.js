@@ -11,6 +11,7 @@ import flyWitch from '../images/flyWitch.png';
 import bat from '../images/bat.png';
 import cat from '../images/cat.gif';
 import soundBg from '../sounds/sound.mp3';
+import finalBurk from '../images/burk.gif';
 
 
 const TicTacToe = () => {
@@ -44,6 +45,7 @@ const TicTacToe = () => {
     const [witch, setWitch] = useState('card winCard d-none');
     const [scary, setScary] = useState('card winCard d-none');
     const [evenSorciere, setEvenSorciere] = useState('d-none');
+    const [finalWinner, setFinalWinner] = useState('d-none');
 
     const [player1Games, setPlayer1Games] = useState(0);
     const [player2Games, setPlayer2Games] = useState(0);
@@ -63,16 +65,22 @@ const TicTacToe = () => {
         if (id === "9") { setSq9(letter); setPlay9("square noClik"); }
     }
     useEffect(() => {
+        if (player1Games === 3 || player2Games === 3) {
+            setFinalWinner('card finalCard');
+            if (player1Games === 3) setMsg("PLAYER 1 WINS THE GAME!");
+            if (player2Games === 3) setMsg("PLAYER 2 WINS THE GAME!");
+            setInterval(() => { window.location.reload(); }, 5000);
+        }
         const reset = () => {
-            setSq1("");
-            setSq2("");
-            setSq3("");
-            setSq4("");
-            setSq5("");
-            setSq6("");
-            setSq7("");
-            setSq8("");
-            setSq9("");
+            setSq1(""); setPlay1("square");
+            setSq2(""); setPlay2("square");
+            setSq3(""); setPlay3("square");
+            setSq4(""); setPlay4("square");
+            setSq5(""); setPlay5("square");
+            setSq6(""); setPlay6("square");
+            setSq7(""); setPlay7("square");
+            setSq8(""); setPlay8("square");
+            setSq9(""); setPlay9("square");
         }
         ScarySoundBg.play();
         const Xwins = () => {
@@ -81,27 +89,35 @@ const TicTacToe = () => {
             setWitch('card winCard');
             girl.play();
             ScarySoundBg.pause();
-            // setInterval(() => { window.location.reload(); }, 5000);
+            reset();
+            setPlayer1Games(player1Games + 1);
+            setTimeout(() => { 
+                setWitch('d-none');
+                girl.pause();
+             }, 5000);
         }
         const Owins = () => {
             setMsg("O win");
             setScary('card winCard');
             scrayClown.play();
             ScarySoundBg.pause();
-            setPlayer2Games(1);
-            setInterval(() => { 
+            reset();
+            setPlayer2Games(player2Games + 1);
+            setTimeout(() => { 
                 setScary('d-none');
                 scrayClown.pause();
-                reset();
-             }, 5000);
-            // setInterval(() => { window.location.reload(); }, 4000);
+             }, 4000);
         }
         const cats = () => {
             setMsg("NO WINNER TRY AGAIN");
             setEvenSorciere('card winCard');
             witchLaugh.play();
             ScarySoundBg.pause();
-            // setInterval(() => { window.location.reload(); }, 5000);
+            reset();
+            setTimeout(() => { 
+                setEvenSorciere('d-none');
+                witchLaugh.pause();
+             }, 5000);
         }
         if (sq1 === "X" && sq2 === "X" && sq3 === "X") Xwins();
         if (sq1 === "O" && sq2 === "O" && sq3 === "O") Owins();
@@ -157,6 +173,8 @@ const TicTacToe = () => {
             <div id="9" onClick={clicked} className={play9}>{sq9}</div>
         </div>
         <div className="somOfGames">
+            <h2>WIN 3 TIMES TO <br/> WIN THE GAME</h2>
+            <br/>
             <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
             <br/>
             <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
@@ -172,6 +190,10 @@ const TicTacToe = () => {
         <div className={evenSorciere}>
             <p className="text-center msg">{msg}</p>
             <img src={evenWitch} className="card-img-top" alt="..." />
+        </div>
+        <div className={finalWinner}>
+            <p className="text-center msg">{msg}</p>
+            <img src={finalBurk} className="card-img-top" alt="..." />
         </div>
         <div id = "pot">
             <img src={flyWitch} width="100px" height="100px" alt="witch" />
