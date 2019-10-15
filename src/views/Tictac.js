@@ -45,6 +45,9 @@ const TicTacToe = () => {
     const [scary, setScary] = useState('card winCard d-none');
     const [evenSorciere, setEvenSorciere] = useState('d-none');
 
+    const [player1Games, setPlayer1Games] = useState(0);
+    const [player2Games, setPlayer2Games] = useState(0);
+
     const clicked = (e) => {
         let id = e.target.id;
         (letter === "X") ? setLetter("O") : setLetter("X");
@@ -60,27 +63,45 @@ const TicTacToe = () => {
         if (id === "9") { setSq9(letter); setPlay9("square noClik"); }
     }
     useEffect(() => {
+        const reset = () => {
+            setSq1("");
+            setSq2("");
+            setSq3("");
+            setSq4("");
+            setSq5("");
+            setSq6("");
+            setSq7("");
+            setSq8("");
+            setSq9("");
+        }
         ScarySoundBg.play();
         const Xwins = () => {
+            setPlayer1Games(1);
             setMsg("X win");
             setWitch('card winCard');
             girl.play();
             ScarySoundBg.pause();
-            setInterval(() => { window.location.reload(); }, 5000);
+            // setInterval(() => { window.location.reload(); }, 5000);
         }
         const Owins = () => {
             setMsg("O win");
             setScary('card winCard');
             scrayClown.play();
             ScarySoundBg.pause();
-            setInterval(() => { window.location.reload(); }, 4000);
+            setPlayer2Games(1);
+            setInterval(() => { 
+                setScary('d-none');
+                scrayClown.pause();
+                reset();
+             }, 5000);
+            // setInterval(() => { window.location.reload(); }, 4000);
         }
         const cats = () => {
             setMsg("NO WINNER TRY AGAIN");
-            setEvenSorciere('card winCard')
+            setEvenSorciere('card winCard');
             witchLaugh.play();
             ScarySoundBg.pause();
-            setInterval(() => { window.location.reload(); }, 5000);
+            // setInterval(() => { window.location.reload(); }, 5000);
         }
         if (sq1 === "X" && sq2 === "X" && sq3 === "X") Xwins();
         if (sq1 === "O" && sq2 === "O" && sq3 === "O") Owins();
@@ -113,7 +134,7 @@ const TicTacToe = () => {
         if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
         if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
         if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
-    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, ScarySoundBg, witchLaugh])
+    }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, ScarySoundBg, witchLaugh, player1Games, player2Games])
 
    
     return (
@@ -134,6 +155,11 @@ const TicTacToe = () => {
             <div id="7" onClick={clicked} className={play7}>{sq7}</div>
             <div id="8" onClick={clicked} className={play8}>{sq8}</div>
             <div id="9" onClick={clicked} className={play9}>{sq9}</div>
+        </div>
+        <div className="somOfGames">
+            <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
+            <br/>
+            <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
         </div>
         <div className={witch}>
             <p className="text-center msg">{msg}</p>

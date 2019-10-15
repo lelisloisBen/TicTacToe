@@ -114,3 +114,11 @@ a:hover {
       50%{ right: 20%; }
       100%{right: 20%; }
   }
+  .somOfGames {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+  }
+  .underline {
+    text-decoration: underline;
+  }
