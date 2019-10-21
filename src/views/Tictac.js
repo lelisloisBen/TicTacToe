@@ -148,24 +148,25 @@ const TicTacToe = () => {
         if (sq1 === "X" && sq5 === "X" && sq9 === "X") Xwins();
         if (sq1 === "O" && sq5 === "O" && sq9 === "O") Owins();
         if (sq3 === "X" && sq5 === "X" && sq7 === "X") Xwins();
-        if (sq3 === "O" && sq5 === "O" && sq7 === "O") Owins();
-        if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "O") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
-        if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        else if (sq1 && sq2 && sq3 && sq4 && sq5 && sq6 && sq7 && sq8 && sq9 !=="") cats();
+        // if (sq3 === "O" && sq5 === "O" && sq7 === "O") Owins();
+        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "O") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
+        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
+        // if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
     }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, witchLaugh, ScarySoundBg, player1Games, player2Games, FinalScream])
 
    
