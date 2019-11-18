@@ -149,79 +149,56 @@ const TicTacToe = () => {
         if (sq1 === "O" && sq5 === "O" && sq9 === "O") Owins();
         if (sq3 === "X" && sq5 === "X" && sq7 === "X") Xwins();
         else if (sq1 && sq2 && sq3 && sq4 && sq5 && sq6 && sq7 && sq8 && sq9 !=="") cats();
-        // if (sq3 === "O" && sq5 === "O" && sq7 === "O") Owins();
-        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "O" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "O" && sq6 === "X" && sq7 === "X" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "X" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "O") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "O" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "X" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "O" && sq5 === "X" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "O" && sq2 === "X" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "O" && sq9 === "X") cats();
-        // if (sq1 === "X" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "O" && sq6 === "X" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
-        // if (sq1 === "O" && sq2 === "O" && sq3 === "X" && sq4 === "X" && sq5 === "X" && sq6 === "O" && sq7 === "O" && sq8 === "X" && sq9 === "O") cats();
     }, [msg, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9, girl, scrayClown, witchLaugh, ScarySoundBg, player1Games, player2Games, FinalScream])
 
    
     return (
-        <>
-        {/* <Consumer>
-        {({ store }) => { 
-            return <h2 className="text-center">{store.name}</h2>; 
-            }}
-        </Consumer> */}
-        <h2 className="text-center"><b>{players} {letter} → PLAY</b></h2>
-        <div className="board">
-            <div id="1" onClick={clicked} className={play1}>{sq1}</div>
-            <div id="2" onClick={clicked} className={play2}>{sq2}</div>
-            <div id="3" onClick={clicked} className={play3}>{sq3}</div>
-            <div id="4" onClick={clicked} className={play4}>{sq4}</div>
-            <div id="5" onClick={clicked} className={play5}>{sq5}</div>
-            <div id="6" onClick={clicked} className={play6}>{sq6}</div>
-            <div id="7" onClick={clicked} className={play7}>{sq7}</div>
-            <div id="8" onClick={clicked} className={play8}>{sq8}</div>
-            <div id="9" onClick={clicked} className={play9}>{sq9}</div>
-        </div>
-        <div className="somOfGames">
-            <h2>WIN 3 TIMES TO <br/> WIN THE GAME</h2>
-            <br/>
-            <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
-            <br/>
-            <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
-        </div>
-        <div className={witch}>
-            <p className="text-center msg">{msg}</p>
-            <img src={sorciere} className="card-img-top" alt="..." />
-        </div>
-        <div className={scary}>
-            <p className="text-center msg">{msg}</p>
-            <img src={clown} className="card-img-top" alt="..." />
-        </div>
-        <div className={evenSorciere}>
-            <p className="text-center msg">{msg}</p>
-            <img src={evenWitch} className="card-img-top" alt="..." />
-        </div>
-        <div className={finalWinner}>
-            <p className="text-center msg">{msg}</p>
-            <img src={finalBurk} className="card-img-top" alt="..." />
-        </div>
-        <div id = "pot">
-            <img src={flyWitch} width="100px" height="100px" alt="witch" />
-        </div>
-        <div className="bat">
-            <img src={bat} alt="bat" width = "100px" height ="100px"/>
-        </div>
-        <div className="cat">
-            <img src={cat} alt="bat" width = "100px" height ="100px"/>
-        </div>
-        </>
+        <section className="bg">
+            <h2 className="text-center"><b>{players} {letter} → PLAY</b></h2>
+            <div className="board">
+                <div id="1" onClick={clicked} className={play1}>{sq1}</div>
+                <div id="2" onClick={clicked} className={play2}>{sq2}</div>
+                <div id="3" onClick={clicked} className={play3}>{sq3}</div>
+                <div id="4" onClick={clicked} className={play4}>{sq4}</div>
+                <div id="5" onClick={clicked} className={play5}>{sq5}</div>
+                <div id="6" onClick={clicked} className={play6}>{sq6}</div>
+                <div id="7" onClick={clicked} className={play7}>{sq7}</div>
+                <div id="8" onClick={clicked} className={play8}>{sq8}</div>
+                <div id="9" onClick={clicked} className={play9}>{sq9}</div>
+            </div>
+            <div className="somOfGames">
+                <h2>WIN 3 TIMES TO <br/> WIN THE GAME</h2>
+                <br/>
+                <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
+                <br/>
+                <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
+            </div>
+            <div className={witch}>
+                <p className="text-center msg">{msg}</p>
+                <img src={sorciere} className="card-img-top" alt="..." />
+            </div>
+            <div className={scary}>
+                <p className="text-center msg">{msg}</p>
+                <img src={clown} className="card-img-top" alt="..." />
+            </div>
+            <div className={evenSorciere}>
+                <p className="text-center msg">{msg}</p>
+                <img src={evenWitch} className="card-img-top" alt="..." />
+            </div>
+            <div className={finalWinner}>
+                <p className="text-center msg">{msg}</p>
+                <img src={finalBurk} className="card-img-top" alt="..." />
+            </div>
+            <div id = "pot">
+                <img src={flyWitch} width="100px" height="100px" alt="witch" />
+            </div>
+            <div className="bat">
+                <img src={bat} alt="bat" width = "100px" height ="100px"/>
+            </div>
+            <div className="cat">
+                <img src={cat} alt="bat" width = "100px" height ="100px"/>
+            </div>
+        </section>
     );
 };
 
