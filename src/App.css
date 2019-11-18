@@ -67,6 +67,13 @@ a:hover {
   .cat {
     display: none;
   }
+  .winCard {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 
 .square {
