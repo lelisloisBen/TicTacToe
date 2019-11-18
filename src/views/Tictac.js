@@ -54,7 +54,7 @@ const TicTacToe = () => {
     const [msg, setMsg] = useState('');
     const [witch, setWitch] = useState('d-none');
     const [scary, setScary] = useState('d-none');
-    const [evenSorciere, setEvenSorciere] = useState('winCard');
+    const [evenSorciere, setEvenSorciere] = useState('d-none');
     const [finalWinner, setFinalWinner] = useState('d-none');
 
     const [player1Games, setPlayer1Games] = useState(0);
