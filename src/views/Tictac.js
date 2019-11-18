@@ -52,9 +52,9 @@ const TicTacToe = () => {
     const [sq9, setSq9] = useState("");
     const [play9, setPlay9] = useState("square");
     const [msg, setMsg] = useState('');
-    const [witch, setWitch] = useState('card winCard d-none');
-    const [scary, setScary] = useState('card winCard d-none');
-    const [evenSorciere, setEvenSorciere] = useState('d-none');
+    const [witch, setWitch] = useState('d-none');
+    const [scary, setScary] = useState('d-none');
+    const [evenSorciere, setEvenSorciere] = useState('winCard');
     const [finalWinner, setFinalWinner] = useState('d-none');
 
     const [player1Games, setPlayer1Games] = useState(0);
@@ -106,7 +106,7 @@ const TicTacToe = () => {
             ScarySoundBg.pause();
             setPlayer1Games(1);
             setMsg("X win");
-            setWitch('card winCard');
+            setWitch('winCard');
             girl.play();
             reset();
             setPlayer1Games(player1Games + 1);
@@ -119,7 +119,7 @@ const TicTacToe = () => {
         const Owins = () => {
             ScarySoundBg.pause();
             setMsg("O win");
-            setScary('card winCard');
+            setScary('winCard');
             scrayClown.play();
             reset();
             setPlayer2Games(player2Games + 1);
@@ -132,7 +132,7 @@ const TicTacToe = () => {
         const cats = () => {
             ScarySoundBg.pause();
             setMsg("NO WINNER TRY AGAIN");
-            setEvenSorciere('card winCard');
+            setEvenSorciere('winCard');
             witchLaugh.play();
             reset();
             setTimeout(() => { 
@@ -195,7 +195,7 @@ const TicTacToe = () => {
             </div>
             <div className={evenSorciere}>
                 <p className="text-center msg">{msg}</p>
-                <img src={evenWitch} className="card-img-top" alt="..." />
+                <img src={evenWitch}     alt="..." />
             </div>
             <div className={finalWinner}>
                 <p className="text-center msg">{msg}</p>

@@ -64,20 +64,22 @@ a:hover {
   .cat {
     display: none;
   }
-  .winCard {
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+  
 }
+  
+.winCard {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+}
+
 
 .square {
   border: 6px solid #230404;
   border-radius: 2px;
   font-weight: bold;
-  /* font-size: 6rem; */
   font-size: 8vw;
   display: flex;
   justify-content: center;
@@ -92,12 +94,10 @@ a:hover {
 .noClik {
   pointer-events: none;
 }
-.winCard {
-  background-color: black;
-  position: absolute;
-  top: 12%;
-  left: 35%;
-  width: 30%;
+
+.winCard img {
+  width: 100%;
+  height: 100%;
 }
 
 .msg {
