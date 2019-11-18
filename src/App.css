@@ -1,5 +1,9 @@
 body {
   font-family: 'Mansalva', cursive;
+  background-color: black;
+  color: white;
+}
+.bg {
   background-image: url('./images/bg.jpg');
   background-color: #C63523;
   background-position: center;
@@ -113,11 +117,6 @@ a:hover {
       0% { right:0; }
       50%{ right: 20%; }
       100%{right: 20%; }
-  }
-  .somOfGames {
-    position: absolute;
-    top: 20%;
-    left: 2%;
   }
   .underline {
     text-decoration: underline;

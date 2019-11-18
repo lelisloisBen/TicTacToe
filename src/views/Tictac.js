@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Consumer } from "../store/appContext";
 
 import sorciere from '../images/sorciere.gif';
 import clown from '../images/clown.gif';
@@ -164,23 +163,27 @@ const TicTacToe = () => {
     return (
         <section className="bg" style={{minHeight: windowsHeight}}>
             <h2 className="text-center"><b>{players} {letter} → PLAY</b></h2>
-            <div className="board">
-                <div id="1" onClick={clicked} className={play1}>{sq1}</div>
-                <div id="2" onClick={clicked} className={play2}>{sq2}</div>
-                <div id="3" onClick={clicked} className={play3}>{sq3}</div>
-                <div id="4" onClick={clicked} className={play4}>{sq4}</div>
-                <div id="5" onClick={clicked} className={play5}>{sq5}</div>
-                <div id="6" onClick={clicked} className={play6}>{sq6}</div>
-                <div id="7" onClick={clicked} className={play7}>{sq7}</div>
-                <div id="8" onClick={clicked} className={play8}>{sq8}</div>
-                <div id="9" onClick={clicked} className={play9}>{sq9}</div>
-            </div>
-            <div className="somOfGames">
-                <h2>WIN 3 TIMES TO <br/> WIN THE GAME</h2>
-                <br/>
-                <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
-                <br/>
-                <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
+            <div className="row">
+                <div className="col-sm-12 col-md-4 col-lg-4 mt-5 pl-2 text-center">
+                    <h2>WIN 3 TIMES TO <br/> WIN THE GAME</h2>
+                    <br/>
+                    <h3><span className="underline">PLAYER 1:</span>  {player1Games} win.</h3>
+                    <br/>
+                    <h3><span className="underline">PLAYER 2:</span>  {player2Games} win.</h3>
+                </div>
+                <div className="col-sm-12 col-md-8 col-lg-8 text-left">
+                    <div className="board">
+                        <div id="1" onClick={clicked} className={play1}>{sq1}</div>
+                        <div id="2" onClick={clicked} className={play2}>{sq2}</div>
+                        <div id="3" onClick={clicked} className={play3}>{sq3}</div>
+                        <div id="4" onClick={clicked} className={play4}>{sq4}</div>
+                        <div id="5" onClick={clicked} className={play5}>{sq5}</div>
+                        <div id="6" onClick={clicked} className={play6}>{sq6}</div>
+                        <div id="7" onClick={clicked} className={play7}>{sq7}</div>
+                        <div id="8" onClick={clicked} className={play8}>{sq8}</div>
+                        <div id="9" onClick={clicked} className={play9}>{sq9}</div>
+                    </div>
+                </div>
             </div>
             <div className={witch}>
                 <p className="text-center msg">{msg}</p>
