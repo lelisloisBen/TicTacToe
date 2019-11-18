@@ -16,7 +16,16 @@ import FinalMonster from '../sounds/finalMonster.mp3';
 
 const TicTacToe = () => {
 
-    const [windowsHeight] = useState(window.innerHeight);
+    const [windowsHeight, setWindowHeight] = useState(window.innerHeight);
+
+    useEffect(() => {
+        const handleResize = () => setWindowHeight(window.innerHeight);
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    },[])
+
     const [girl] = useState(new Audio(girlUrl));
     const [scrayClown] = useState(new Audio(clownUrl));
     const [witchLaugh] = useState(new Audio(laugh));
