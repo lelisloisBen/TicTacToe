@@ -14,9 +14,9 @@ import soundBg from '../sounds/sound.mp3';
 import finalBurk from '../images/burk.gif';
 import FinalMonster from '../sounds/finalMonster.mp3';
 
-
 const TicTacToe = () => {
 
+    const [windowsHeight] = useState(window.innerHeight);
     const [girl] = useState(new Audio(girlUrl));
     const [scrayClown] = useState(new Audio(clownUrl));
     const [witchLaugh] = useState(new Audio(laugh));
@@ -153,7 +153,7 @@ const TicTacToe = () => {
 
    
     return (
-        <section className="bg">
+        <section className="bg" style={{minHeight: windowsHeight}}>
             <h2 className="text-center"><b>{players} {letter} → PLAY</b></h2>
             <div className="board">
                 <div id="1" onClick={clicked} className={play1}>{sq1}</div>
