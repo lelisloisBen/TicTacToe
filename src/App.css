@@ -55,9 +55,6 @@ a:hover {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   }
-  .square {
-    font-size: 3rem;
-  }
   #pot{
     display: none;
   }
@@ -80,7 +77,8 @@ a:hover {
   border: 6px solid #230404;
   border-radius: 2px;
   font-weight: bold;
-  font-size: 6rem;
+  /* font-size: 6rem; */
+  font-size: 8vw;
   display: flex;
   justify-content: center;
   align-items: center;
